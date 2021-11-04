@@ -15,7 +15,7 @@ reward)
         2       Pole Angle                -0.418 rad (-24 deg)    0.418 rad (24 deg)
         3       Pole Angular Velocity     -Inf                    Inf
 * for MountainCar-v0 : \
-[-0.37612938  0.01045749] <class 'numpy.ndarray'>
+[-0.75695876  0.0090328 ] <class 'numpy.ndarray'>
 
         Type: Box(2)
         Num    Observation               Min            Max
@@ -23,7 +23,7 @@ reward)
         1      Car Velocity              -0.07          0.07
 
 * for MountainCarContinuous-v0 : \
-[-0.37612938  0.01045749] <class 'numpy.ndarray'>
+[-0.53853904  0.00807581] <class 'numpy.ndarray'> 
 
         Type: Box(2)
         Num    Observation               Min            Max
@@ -32,6 +32,7 @@ reward)
 
 ### (2) what is encoded in the action vector 
 * for Cartpole-v0: 
+1 <class 'int'>
 
         Type: Discrete(2)
         Num   Action
@@ -48,7 +49,7 @@ reward)
 
 
 * for MountainCarContinuous-v0 : 
-
+[-0.01399753] <class 'numpy.ndarray'> \
         Type: Box(1)
         Num    Action                    Min            Max
         0      the power coef            -1.0           1.0
@@ -56,6 +57,7 @@ reward)
 ### (3) how the reward is calculated 
 
 * for Cartpole-v0: \
+1.0 <class 'float'>
     Reward is 1 for every step taken, including the termination step
 
 
@@ -66,9 +68,9 @@ reward)
     Reward of -1 is awarded if the position of the agent is less than 0.5.
 
 * for MountainCarContinuous-v0 : \
-
-        Reward of 100 is awarded if the agent reached the flag (position = 0.45) on top of the mountain. \
-        Reward is decrease based on amount of energy consumed each step.
+-1.9593086190875313e-05 <class 'float'> \
+    Reward of 100 is awarded if the agent reached the flag (position = 0.45) on top of the mountain. \
+    Reward is decrease based on amount of energy consumed each step.
 
 
 ### (4) how the initial conditions are varied by the reset method 
@@ -77,14 +79,12 @@ reward)
 
 
 * for MountainCar-v0 : \
--1.0 <class 'float'> \
          The position of the car is assigned a uniform random value in
          [-0.6 , -0.4]. \
          The starting velocity of the car is always assigned to 0.
 
 
 * for MountainCarContinuous-v0 : \
--1.0 <class 'float'> \
          The position of the car is assigned a uniform random value in
          [-0.6 , -0.4]. \
          The starting velocity of the car is always assigned to 0.
