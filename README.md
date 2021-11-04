@@ -11,7 +11,6 @@ It will be as folders for every excercise and lab. \
 In each lab there will be a readme file explaining the lab or its requirments. \
 I will add afterwards a folder specific for the final project. 
 
-For Installation and Setup you can look in the [WIKI][2].
+For Installation and Setup you can look in the [WIKI][1].
 
-[1]: https://github.com/mostafa-metwaly/Behavioral-and-Cognitive-Robotics.wiki.git
-[2]: https://github.com/mostafa-metwaly/Behavioral-and-Cognitive-Robotics.wiki.git
+[1]: https://github.com/mostafa-metwaly/Behavioral-and-Cognitive-Robotics/wiki
