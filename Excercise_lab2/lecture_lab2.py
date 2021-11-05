@@ -8,7 +8,7 @@ class Network:
         # nsensoryn = env.....
         # nmotorn = .....
 
-
+        self.cumreward =[]
         pvariance = 0.1     # variance of initial parameters
         ppvariance = 0.02   # variance of perturbations
         nhiddens = 5        # number of internal neurons
@@ -53,36 +53,22 @@ class Network:
         return(action)
 
     def evaluate(self, nepisodes):
-        # env.render(mode = 'rgb_array')
+        # self.env.render(mode = 'rgb_array')
         for e in range(nepisodes):
             observation = env.reset()
-            done = 1
-            reward = 0
+            done = False
             while not done :
                 action = network.update(observation)
                 observation, reward, done, info = env.step(action)
-                print("done")
+                self.cumreward.append(reward)
+
+                print(sum(self.cumreward))
+
         return reward
 
-
-#     def getnparameters(self):
-#         adding all the parameters (w , b ..)
-
-
-
-#         return nparameters
-
-
-
-
-#     def setparameters(self, genotype):
-        
-
-
-
-# popsize = 10
 
 
 env = gym.make('CartPole-v0')
 network = Network(env,5)
 fitness = network.evaluate(3)
+ 
