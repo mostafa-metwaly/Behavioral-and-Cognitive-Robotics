@@ -3,9 +3,9 @@ performs an evaluation episode by showing
 the behavior and by printing the step, the observation vector, the
 action vector, the reward, and the fitness (i.e. the cumulative
 reward)
-
+[Python file](https://github.com/mostafa-metwaly/Behavioral-and-Cognitive-Robotics/edit/main/Excercise_lab1/lab1a.py)
 ## B) Analyze the implementation of two classic control environment
- ### (1) what is encoded in the observation vector 
+### (1) what is encoded in the observation vector 
 * for Cartpole-v0: \
 [ 0.17513729  1.53287277 -0.22794664 -2.47505599] <class 'numpy.ndarray'> 
 
