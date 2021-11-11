@@ -2,6 +2,7 @@ import time
 from typing_extensions import Concatenate
 import gym
 import numpy as np
+from numpy.core.fromnumeric import size
 
 # Developing the algorithim with a neural network to be able to conduct the appropiate weight and bias to fit the model in.
 
@@ -90,7 +91,7 @@ class Network:
 
 
     def getnparameters(self):
-        all_param = np.array(self.env_param) * self.ppvariance
+        all_param = np.array(self.env_param)
         a =[]
         # for idx,i in enumerate(self.env_param):
         for i in all_param:
@@ -114,7 +115,13 @@ class Network:
     def setparameters(self, genotype):
     #         setting the values of the genotype and adding the weights and biasses values.
             self.env_param = genotype
-            return()
+            return self.env_param
+
+    def noise(self):
+        mutang = self.ppvariance
+        return
+
+
 
     def evolutionary_alg(self ):
 
@@ -124,25 +131,18 @@ class Network:
         nepisodes = 3
         ngeneration = 100
 
-        # env = gym.make('CartPole-v0')
-        # network = Network(env,10)
-        # fitness = network.evaluate(3)
-        # print("done developing algorithim")
-        # fitness_show = network.render(2)
+        env = gym.make('CartPole-v0')
 
-
-        np.random.seed(1)
-        nparameters = network.getnparameters()
+        # nparameters = network.getnparameters()
         # intialization of the population
         population = np.vstack((self.env_param for i in range(popsize) ))
         # print(population)
         population_const = population[0] *0+1
-        # ma = np.array(population_const)
-        # ma = np.random.randn(population_const)
 
+        
  
 
-        # return
+        # # return
 
         for g in range(ngeneration):
             fitness = []
@@ -168,17 +168,9 @@ class Network:
             print("max fitness :",max_fit)
 
 
-np.random.seed(1)
+np.random.seed(8) # the Magic number is 8
 
 env = gym.make('CartPole-v0')
 network = Network(env,5)
 fit = network.evolutionary_alg() 
 render = network.render(2)
-
-
-# nparameters = network.getnparameters()
-# population = np.random.randint(0, 2, size=(popsize, nparameters)) * self.ppvariance
-# fitness = []
-# print(nparameters)
-# print(type(nparameters))
-        # return
