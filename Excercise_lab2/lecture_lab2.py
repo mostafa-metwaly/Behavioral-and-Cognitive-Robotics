@@ -1,6 +1,9 @@
+import time
 import gym
 import numpy as np
+from numpy.core.defchararray import count
 
+# Developing the algorithim with a neural network to be able to conduct the appropiate weight and bias to fit the model in.
 
 class Network:
 
@@ -66,9 +69,33 @@ class Network:
 
         return reward
 
+    def render(self, nepisodes):
+
+        for e in range(nepisodes):
+            self.cumreward =[]
+            observation = env.reset()
+            done = False
+            while not done :
+                env.render()
+                action = network.update(observation)
+                observation, reward, done, info = env.step(action)
+                self.cumreward.append(reward)
+                time.sleep(0.05)
+                print(sum(self.cumreward))
+        env.close()
+        return reward
+
+    def getnparameters(self):
+        print(type(self.env_w))
+        nparameters = len(self.env_w)
+        print(nparameters)
+        return nparameters
 
 
 env = gym.make('CartPole-v0')
-network = Network(env,5)
+network = Network(env,10)
 fitness = network.evaluate(3)
- 
+print("done developing algorithim")
+# fitness_show = network.render(2)
+fitness_show = network.getnparameters()
+
