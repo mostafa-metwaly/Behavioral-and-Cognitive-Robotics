@@ -118,8 +118,14 @@ class Network:
             return self.env_param
 
     def noise(self):
-        mutang = self.ppvariance
-        return
+        noise = []
+
+        pop = np.array(self.env_param)
+        for i in pop:
+            pops = np.random.randn(i.shape[0],i.shape[1]) * self.mutrange
+            noise.append(pops)
+        # print(noise)
+        return noise
 
 
 
@@ -127,7 +133,7 @@ class Network:
 
         popsize = 10
         generange = 0.1
-        mutrange = 0.02
+        self.mutrange = 0.02
         nepisodes = 3
         ngeneration = 100
 
@@ -137,12 +143,12 @@ class Network:
         # intialization of the population
         population = np.vstack((self.env_param for i in range(popsize) ))
         # print(population)
-        population_const = population[0] *0+1
+        self.population_const = population[0] *0+1
 
         
  
 
-        # # return
+        # # # # return
 
         for g in range(ngeneration):
             fitness = []
@@ -160,17 +166,18 @@ class Network:
             # print(fitness)
             max_fit = fitness[-1][0]
             mean_fit = (fitness[0][1]+fitness[-1][0])/popsize
-
             for a in range(int(popsize/2)):
-                population[fitness[a][1]][:] = population[a + int(popsize/2)][:] + (population_const *  mutrange)
+                noise = network.noise()
+                population[fitness[a][1]][:] = population[a + int(popsize/2)][:] + noise
             print("generation no.:",g)
             print("fitness mean :", mean_fit)
             print("max fitness :",max_fit)
 
 
-np.random.seed(8) # the Magic number is 8
+# np.random.seed(2) # the Magic number is 8
 
 env = gym.make('CartPole-v0')
 network = Network(env,5)
 fit = network.evolutionary_alg() 
-render = network.render(2)
+render = network.render(1)
+network.noise()
