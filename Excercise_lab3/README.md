@@ -34,5 +34,5 @@ model.save(PPOmodel_path)
 additionally we can evaluate the model performance using the evaluate_policy 
 
 ```python3
-evaluate_policy(model, env, n_eval_episodes=10, render=True)
+mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10, render=True)
 ```
