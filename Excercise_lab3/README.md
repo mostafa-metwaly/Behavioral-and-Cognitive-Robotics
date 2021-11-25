@@ -36,3 +36,6 @@ additionally we can evaluate the model performance using the evaluate_policy
 ```python3
 mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10, render=True)
 ```
+<img src='https://github.com/mostafa-metwaly/Behavioral-and-Cognitive-Robotics/blob/main/Excercise_lab3/CartPole-V0.gif' title=' CartPole Video ' width='' alt='Video Walkthrough' />
+
+
